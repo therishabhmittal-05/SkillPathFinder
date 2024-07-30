@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SkillSelection.css'; // Optional if you have additional custom styles
+// import './SkillSelection.css'; // Optional if you have additional custom styles
 
 const initialSkillsList = [
   'MERN Stack',
