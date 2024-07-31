@@ -4,7 +4,7 @@ import HomePage from './components/HomePage';
 import Skill from './components/Skill';
 import UserDashboard from './components/UserDashboard';
 import QuestionnaireForm from './components/QuestionnaireForm';
-import RecommendationsPage from './components/RecommendationsPage';
+import RecommendationPage from './components/RecommendationPage';
 function App() {
   
     const user = {
@@ -27,7 +27,7 @@ function App() {
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/selectskill" element={<Skill />} />
         <Route path="/question" element={<QuestionnaireForm />} />
-        <Route path="/recommendations" component={RecommendationsPage} />
+        <Route path="/recommendation" element={<RecommendationPage/>} />
         {/* Other routes */}
       </Routes>
     </Router>
