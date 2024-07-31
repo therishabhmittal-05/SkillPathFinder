@@ -1,10 +1,13 @@
 import dotenv from "dotenv";
 import axios from 'axios';
+import cors from 'cors'
 import express from "express";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 dotenv.config();
 const app = express();
 app.use(express.json());
+app.use(cors());
+
 
 // const skillLevel = "Intermediate";
 // const age = "20"
