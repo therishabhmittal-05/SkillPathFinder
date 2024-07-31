@@ -1,4 +1,4 @@
-import Recommendation from '../models/recommendationModel.js';
+import Recommendation from '../models/recommendation.model.js';
 
 // Create a new recommendation
 export const createRecommendation = async (req, res) => {
