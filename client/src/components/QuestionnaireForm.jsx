@@ -14,13 +14,13 @@ const QuestionnaireForm = () => {
   });
 
   const questions = [
+    { id: 'desiredSubject', question: 'What subject do you want to learn?' },
     {
       id: 'skillLevel',
       question: 'What is your current skill level?',
       options: ['Beginner', 'Intermediate', 'Advanced']
     },
     { id: 'age', question: 'What is your age?', type: 'number' },
-    { id: 'desiredSubject', question: 'What subject do you want to learn?' },
     { id: 'learningGoal', question: 'What is your learning goal?' },
     { id: 'availableTime', question: 'How many hours per week can you dedicate to learning?', type: 'number' },
     { id: 'courseDuration', question: 'What is your preferred course duration?', placeholder: 'e.g., Short-term, Long-term' },
@@ -48,10 +48,16 @@ const QuestionnaireForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', answers);
-    // Here you would typically send the data to a server or perform some action
+    try {
+      const response = await axios.post('http://localhost:3000/aifeature', answers);
+      console.log('Form submitted:', response.data);
+      // or navigate('/results', { state: { recommendations: response.data } }); for React Router v6
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
 
   const currentQ = questions[currentQuestion];
