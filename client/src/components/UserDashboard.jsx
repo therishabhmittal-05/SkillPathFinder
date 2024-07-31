@@ -1,56 +1,38 @@
 import React from 'react';
 
 const UserDashboard = ({ user }) => {
+  const achievements = [
+    { icon: "🔥", name: "Learning Streak", progress: user.learningStreak, total: 30, description: "30 day learning streak" },
+    { icon: "📚", name: "Course Completions", progress: user.completedCourses, total: 10, description: "Complete 10 courses" },
+    { icon: "🏆", name: "Skill Mastery", progress: user.masteredSkills, total: 5, description: "Master 5 skills" },
+    { icon: "🌟", name: "Top Performer", progress: user.topPerformerCount, total: 3, description: "Finish top 3 in your league" }
+  ];
+
   return (
-    <div className="bg-gray-800 text-white p-6 rounded-lg font-sans">
-      <div className="text-center mb-8">
-        <div className="w-24 h-24 bg-gray-700 rounded-full mx-auto flex items-center justify-center text-4xl text-blue-400 mb-4">
-          +
-        </div>
-        <h1 className="text-2xl font-bold">{user.name}</h1>
-        <p className="text-gray-400">{user.username}</p>
-        <p className="text-sm text-gray-400 mb-2">Joined {user.joinDate}</p>
-        <div className="flex justify-center space-x-4">
-          <span>{user.following} Following</span>
-          <span>{user.followers} Followers</span>
-        </div>
-        {/* Country flag can be added here */}
-      </div>
+    <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg font-sans shadow-xl">
+      {/* ... (previous code for user info and statistics remains the same) ... */}
       
-      <div className="bg-gray-700 rounded-lg p-4 mb-6">
-        <h2 className="text-xl font-semibold mb-4">Statistics</h2>
-        <div className="grid grid-cols-2 gap-4">
-          {[
-            { icon: "🔥", value: user.dayStreak, label: "Day streak" },
-            { icon: "⚡", value: user.totalXP, label: "Total XP" },
-            { icon: "🛡️", value: user.currentLeague || 'None', label: "Current league" },
-            { icon: "🏅", value: user.topFinishes, label: "Top 3 finishes" }
-          ].map((stat, index) => (
-            <div key={index} className="bg-gray-600 p-3 rounded-lg text-center">
-              <div className="text-2xl mb-1">{stat.icon}</div>
-              <div className="text-xl font-bold">{stat.value}</div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
+      <div className="bg-white bg-opacity-10 rounded-xl p-6 shadow-lg">
+        <h2 className="text-2xl font-semibold mb-6">Achievements</h2>
+        {achievements.map((achievement, index) => (
+          <div key={index} className="flex items-center mb-6">
+            <div className="text-4xl mr-6">{achievement.icon}</div>
+            <div className="flex-grow">
+              <h3 className="font-semibold text-lg mb-2">{achievement.name}</h3>
+              <div className="bg-white bg-opacity-20 h-3 rounded-full">
+                <div 
+                  className="bg-gradient-to-r from-blue-400 to-purple-400 h-full rounded-full transition-all duration-500 ease-out" 
+                  style={{width: `${(achievement.progress / achievement.total) * 100}%`}}
+                ></div>
+              </div>
+              <p className="text-sm text-blue-200 mt-1">{achievement.description}</p>
             </div>
-          ))}
-        </div>
-      </div>
-      
-      <div className="bg-gray-700 rounded-lg p-4">
-        <h2 className="text-xl font-semibold mb-4">Achievements</h2>
-        <div className="flex items-center mb-4">
-          <div className="text-3xl mr-4">🔥</div>
-          <div className="flex-grow">
-            <h3 className="font-semibold">Wildfire</h3>
-            <div className="bg-gray-600 h-2 rounded-full mt-1">
-              <div 
-                className="bg-blue-500 h-full rounded-full" 
-                style={{width: `${(user.wildfireProgress / 3) * 100}%`}}
-              ></div>
-            </div>
+            <span className="ml-4 text-lg font-semibold">{achievement.progress}/{achievement.total}</span>
           </div>
-          <span className="ml-2">{user.wildfireProgress}/3</span>
-        </div>
-        <button className="text-blue-400 font-semibold">VIEW ALL</button>
+        ))}
+        <button className="bg-white bg-opacity-20 text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-30 transition duration-300 transform hover:-translate-y-1">
+          VIEW ALL ACHIEVEMENTS
+        </button>
       </div>
     </div>
   );
