@@ -52,4 +52,5 @@ const recommendationSchema = new mongoose.Schema({
 
 const Recommendation = mongoose.model('Recommendation', recommendationSchema);
 
-module.exports = Recommendation;
+// module.exports = Recommendation;
+export default Recommendation;
