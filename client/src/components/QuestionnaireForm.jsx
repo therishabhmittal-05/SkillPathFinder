@@ -53,13 +53,20 @@ const QuestionnaireForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:3000/aifeature', answers);
-      console.log('Form submitted:', response.data);
-      navigate('/recommendation', { state: { recommendations: response.data } });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }
+    
+    // Navigate immediately to /recommendation
+    navigate('/recommendation', { state: { answers: answers } });
+  
+    // Send the request after a 5-second delay
+    setTimeout(async () => {
+      try {
+        const response = await axios.post('http://localhost:3000/aifeature', answers);
+        console.log('Form submitted:', response.data);
+        // You can update the recommendation page with this data if needed
+      } catch (error) {
+        console.error('Error submitting form:', error);
+      }
+    }, 5000);
   };
 
   const currentQ = questions[currentQuestion];
