@@ -66,7 +66,7 @@ const QuestionnaireForm = () => {
       } catch (error) {
         console.error('Error submitting form:', error);
       }
-    }, 5000);
+    }, 15000);
   };
 
   const currentQ = questions[currentQuestion];

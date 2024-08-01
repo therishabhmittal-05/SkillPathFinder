@@ -4,8 +4,10 @@ import HomePage from './components/HomePage';
 import Skill from './components/Skill';
 import UserDashboard from './components/UserDashboard';
 import QuestionnaireForm from './components/QuestionnaireForm';
-import RecommendationPage from './components/RecommendationPage';
+import RecommendationsPage from './components/RecommendationsPage';
 import UserProfile from './components/Profile';
+import { AuthProvider } from './components/AuthContext';
+
 function App() {
   
     const user = {
@@ -22,20 +24,30 @@ function App() {
     };
   return (
     <>
+    <AuthProvider>
     <Router>
       <Routes>
         <Route exact path="/" element={<HomePage/>} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/selectskill" element={<Skill />} />
         <Route path="/question" element={<QuestionnaireForm />} />
-        <Route path="/recommendation" element={<RecommendationPage/>} />
+        <Route path="/recommendation" element={<RecommendationsPage/>} />
         <Route path = "/profile" element = {<UserProfile/>}></Route>
         {/* Other routes */}
       </Routes>
     </Router>
+    </AuthProvider>
     {/* <UserDashboard user={user} /> */}
     </>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
