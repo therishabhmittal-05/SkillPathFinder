@@ -5,6 +5,7 @@ import Skill from './components/Skill';
 import UserDashboard from './components/UserDashboard';
 import QuestionnaireForm from './components/QuestionnaireForm';
 import RecommendationPage from './components/RecommendationPage';
+import UserProfile from './components/Profile';
 function App() {
   
     const user = {
@@ -28,10 +29,11 @@ function App() {
         <Route path="/selectskill" element={<Skill />} />
         <Route path="/question" element={<QuestionnaireForm />} />
         <Route path="/recommendation" element={<RecommendationPage/>} />
+        <Route path = "/profile" element = {<UserProfile/>}></Route>
         {/* Other routes */}
       </Routes>
     </Router>
-    <UserDashboard user={user} />
+    {/* <UserDashboard user={user} /> */}
     </>
   );
 }
