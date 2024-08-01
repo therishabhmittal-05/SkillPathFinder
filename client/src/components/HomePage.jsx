@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
+    <>
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-100 to-gray-200">
       <header className="bg-blue-600 text-white shadow-lg">
         <div className="container mx-auto px-4 py-6 flex justify-between items-center">
@@ -10,8 +11,8 @@ const HomePage = () => {
           <nav>
             <ul className="flex space-x-6">
               <li><Link to="/" className="hover:text-blue-200 transition duration-300 font-medium">Home</Link></li>
-              <li><Link to="/register" className="hover:text-blue-200 transition duration-300 font-medium">Register</Link></li>
-              <li><Link to="/login" className="hover:text-blue-200 transition duration-300 font-medium">Login</Link></li>
+              <li><Link to="/register" className="hover:text-blue-200 transition duration-300 font-medium">Profile</Link></li>
+              <li><Link to="/auth" className="hover:text-blue-200 transition duration-300 font-medium">Login</Link></li>
             </ul>
           </nav>
         </div>
@@ -60,6 +61,7 @@ const HomePage = () => {
         </div>
       </footer>
     </div>
+    </>
   );
 };
 

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 const QuestionnaireForm = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({
@@ -12,6 +14,7 @@ const QuestionnaireForm = () => {
     learningStyle: '',
     careerGoal: '',
   });
+  const navigate = useNavigate();
 
   const questions = [
     { id: 'desiredSubject', question: 'What subject do you want to learn?' },
@@ -48,13 +51,12 @@ const QuestionnaireForm = () => {
     }
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3000/aifeature', answers);
       console.log('Form submitted:', response.data);
-      // or navigate('/results', { state: { recommendations: response.data } }); for React Router v6
+      navigate('/recommendation', { state: { recommendations: response.data } });
     } catch (error) {
       console.error('Error submitting form:', error);
     }

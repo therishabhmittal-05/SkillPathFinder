@@ -25,6 +25,7 @@ const AuthPage = () => {
   };
 
   return (
+   <>
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-semibold mb-6">{isLogin ? 'Login' : 'Sign Up'}</h2>
@@ -73,6 +74,8 @@ const AuthPage = () => {
         </p>
       </div>
     </div>
+   </>
+
   );
 };
 
