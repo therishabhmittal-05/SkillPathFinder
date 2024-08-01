@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js ai-feature.js",
+    "start": "concurrently \"node server.js\" \"node ai-feature.js\"",
     "dev": "nodemon server.js"
   },
   "keywords": [],
@@ -21,7 +21,8 @@
     "mongoose": "^8.5.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "concurrently": "^8.0.0"
   },
   "type": "module"
 }
