@@ -12,13 +12,18 @@ const AuthPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const endpoint = isLogin ? '/api/login' : '/api/signup';
+      const endpoint = isLogin ? 'http://localhost:8000/api/auth/login' : 'http://localhost:8000/api/auth/signup';
       const payload = isLogin ? { email, password } : { username, email, password };
       
       const response = await axios.post(endpoint, payload);
       
       console.log(response.data);
-      navigate('/dashboard');
+      
+      // Store the token in localStorage
+      localStorage.setItem('userToken', response.data.token);
+      
+      // Redirect to the home page
+      navigate('/');
     } catch (error) {
       console.error('Authentication error:', error.response.data);
     }
@@ -58,7 +63,10 @@ const AuthPage = () => {
           />
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-600"
+            className="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-600" 
+            onClick={()=>{
+              navigate('/');
+            }}
           >
             {isLogin ? 'Login' : 'Sign Up'}
           </button>
@@ -75,7 +83,6 @@ const AuthPage = () => {
       </div>
     </div>
    </>
-
   );
 };
 

@@ -4,14 +4,8 @@ import generateTokenAndSetCookie from "../utils/generateToken.js";
 
 export const signup = async(req,res)=>{
     try {
-        const {fullName,username,password,confirmPassword,gender} = req.body;
-        if(password !== confirmPassword){
-            return res
-            .status(400)
-            .json({
-                error:"Password don't match"
-            })
-        }
+        const {username,password, email} = req.body;
+       
 
         const user = await User.findOne({username});
         if(user){
@@ -28,14 +22,14 @@ export const signup = async(req,res)=>{
 
         // https://avatar-placeholder.iran.liara.run/
         const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
-        const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
+        // const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
 
         const newUser = new User({
-            fullName,
+            
             username,
             password:hashedPassword,
-            gender,
-            profilePic: gender === "male" ? boyProfilePic : girlProfilePic
+            email,
+            profilePic:  boyProfilePic 
         })
 
         if(newUser){
@@ -46,7 +40,7 @@ export const signup = async(req,res)=>{
             .status(201)
             .json({
                 _id: newUser._id,
-                fullName:newUser.fullName,
+                email: user.email,
                 username: newUser.username,
                 profilePic: newUser.profilePic
             })
@@ -79,7 +73,7 @@ export const login = async(req,res) =>{
 
 		res.status(200).json({
 			_id: user._id,
-			fullName: user.fullName,
+            email: user.email,
 			username: user.username,
 			profilePic: user.profilePic,
 		});

@@ -28,6 +28,7 @@ import dotenv from "dotenv";
 
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/recommendation.routes.js";
+import cors from 'cors'
 
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
@@ -35,7 +36,8 @@ import connectToMongoDB from "./db/connectToMongoDB.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT2 || 5000;
+app.use(cors());
+const PORT =  8000;
 
 app.use(express.json()); 
 // app.use(cookieParser());
