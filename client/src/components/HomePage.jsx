@@ -72,40 +72,29 @@
 
 
 
-
-
-
-
-
-
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const history = useHistory();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Simulating an authentication check
-    const checkAuth = () => {
-      // Replace with your actual authentication logic
-      const user = localStorage.getItem('user'); // Example: Check if user data exists in localStorage
-      if (user) {
-        setIsAuthenticated(true);
-      } else {
-        setIsAuthenticated(false);
-        history.push('/auth'); // Redirect to login page if not authenticated
-      }
-    };
+    // Check if user is logged in
+    const userToken = localStorage.getItem('userToken');
+    setIsLoggedIn(!!userToken);
+  }, []);
 
-    checkAuth();
-  }, [history]);
-
-  if (!isAuthenticated) {
-    return null; // Render nothing while checking authentication
-  }
+  const handleNavigation = (path) => {
+    if (isLoggedIn) {
+      navigate(path);
+    } else {
+      navigate('/auth');
+    }
+  };
 
   return (
+    <>
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-100 to-gray-200">
       <header className="bg-blue-600 text-white shadow-lg">
         <div className="container mx-auto px-4 py-6 flex justify-between items-center">
@@ -113,8 +102,30 @@ const HomePage = () => {
           <nav>
             <ul className="flex space-x-6">
               <li><Link to="/" className="hover:text-blue-200 transition duration-300 font-medium">Home</Link></li>
-              <li><Link to="/profile" className="hover:text-blue-200 transition duration-300 font-medium">Profile</Link></li>
-              <li><Link to="/auth" className="hover:text-blue-200 transition duration-300 font-medium">Login</Link></li>
+              <li>
+                <button 
+                  onClick={() => handleNavigation(isLoggedIn ? '/userDashboard' : '/auth')} 
+                  className="hover:text-blue-200 transition duration-300 font-medium"
+                >
+                  {isLoggedIn ? 'Dashboard' : 'Profile'}
+                </button>
+              </li>
+              {isLoggedIn ? (
+                <li>
+                  <button 
+                    onClick={() => {
+                      localStorage.removeItem('userToken');
+                      setIsLoggedIn(false);
+                      navigate('/');
+                    }} 
+                    className="hover:text-blue-200 transition duration-300 font-medium"
+                  >
+                    Logout
+                  </button>
+                </li>
+              ) : (
+                <li><Link to="/auth" className="hover:text-blue-200 transition duration-300 font-medium">Login</Link></li>
+              )}
             </ul>
           </nav>
         </div>
@@ -132,7 +143,12 @@ const HomePage = () => {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-5xl font-extrabold mb-6 leading-tight">Boost Your Skills with Personalized Learning Paths</h2>
             <p className="text-2xl mb-10 max-w-3xl mx-auto">Discover your current skill level and get tailored recommendations to advance your career.</p>
-            <Link to="/question" className="bg-white text-blue-600 font-bold py-4 px-10 rounded-full hover:bg-blue-100 transition duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1">Get Started</Link>
+            <button
+              onClick={() => handleNavigation('/question')}
+              className="bg-white text-blue-600 font-bold py-4 px-10 rounded-full hover:bg-blue-100 transition duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              Get Started
+            </button>
           </div>
         </section>
 
@@ -163,7 +179,15 @@ const HomePage = () => {
         </div>
       </footer>
     </div>
+    </>
   );
 };
 
 export default HomePage;
+
+
+
+
+
+
+
