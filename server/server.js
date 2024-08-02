@@ -32,7 +32,7 @@ app.use("/api/user",userRoutes);
 app.use("/api/userData",userRouter);
 
 
-console.log(__dirname,"/client/dist/index.html")
+
 
 
 
@@ -42,9 +42,9 @@ app.use(express.static(path.join(__dirname,'/client/dist')))
 // 	res.sendfile(path.join(__dirname,"/client/dist/index.html"))
 // })
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+	res.sendFile(path.join(__dirname,'/client','/dist','/index.html'));
   })
-
+console.log(__dirname,'/client','/dist','/index.html')
 app.listen(PORT, () => {
 	connectToMongoDB();
 	console.log(`Server Running on port ${PORT}`);
