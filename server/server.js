@@ -26,6 +26,8 @@
 import express from "express";
 import dotenv from "dotenv";
 
+
+
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/recommendation.routes.js";
 import cors from 'cors'
@@ -38,7 +40,7 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename)
-
+console.log(__dirname)
 dotenv.config();
 
 const app = express();
@@ -68,3 +70,10 @@ app.listen(PORT, () => {
 	connectToMongoDB();
 	console.log(`Server Running on port ${PORT}`);
 });
+
+
+
+
+
+
+

@@ -8,15 +8,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
-// const skillLevel = "Intermediate";
-// const age = "20"
-// const desiredSubject = "Data Science";
-// const learningGoal = "To become proficient in machine learning algorithms";
-// const availableTime = 10;
-// const courseDuration = "Long-term";
-// const learningStyle = "Visual";
-// const careerGoal = "To become a Data Scientist in the healthcare industry";
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 
@@ -84,7 +75,7 @@ Provide 4 course recommendations in the JSON structure. focusing on the most rec
 });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT =  3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
