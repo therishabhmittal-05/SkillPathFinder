@@ -104,7 +104,7 @@ const HomePage = () => {
               <li><Link to="/" className="hover:text-blue-200 transition duration-300 font-medium">Home</Link></li>
               <li>
                 <button 
-                  onClick={() => handleNavigation(isLoggedIn ? '/userDashboard' : '/login')} 
+                  onClick={() => handleNavigation(isLoggedIn ? '/profile' : '/login')} 
                   className="hover:text-blue-200 transition duration-300 font-medium"
                 >
                   {isLoggedIn ? 'Dashboard' : 'Profile'}

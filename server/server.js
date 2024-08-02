@@ -29,7 +29,7 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/recommendation.routes.js";
 import cors from 'cors'
-
+import cookieParser from 'cookie-parser'
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import userRouter from "./routes/user.routes.js";
@@ -41,7 +41,7 @@ app.use(cors());
 const PORT =  8000;
 
 app.use(express.json()); 
-// app.use(cookieParser());
+app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user",userRoutes);
