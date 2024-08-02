@@ -89,7 +89,7 @@ const HomePage = () => {
     if (isLoggedIn) {
       navigate(path);
     } else {
-      navigate('/auth');
+      navigate('/login');
     }
   };
 
@@ -104,7 +104,7 @@ const HomePage = () => {
               <li><Link to="/" className="hover:text-blue-200 transition duration-300 font-medium">Home</Link></li>
               <li>
                 <button 
-                  onClick={() => handleNavigation(isLoggedIn ? '/userDashboard' : '/auth')} 
+                  onClick={() => handleNavigation(isLoggedIn ? '/userDashboard' : '/login')} 
                   className="hover:text-blue-200 transition duration-300 font-medium"
                 >
                   {isLoggedIn ? 'Dashboard' : 'Profile'}
@@ -124,7 +124,7 @@ const HomePage = () => {
                   </button>
                 </li>
               ) : (
-                <li><Link to="/auth" className="hover:text-blue-200 transition duration-300 font-medium">Login</Link></li>
+                <li><Link to="/login" className="hover:text-blue-200 transition duration-300 font-medium">Login</Link></li>
               )}
             </ul>
           </nav>
@@ -144,7 +144,8 @@ const HomePage = () => {
             <h2 className="text-5xl font-extrabold mb-6 leading-tight">Boost Your Skills with Personalized Learning Paths</h2>
             <p className="text-2xl mb-10 max-w-3xl mx-auto">Discover your current skill level and get tailored recommendations to advance your career.</p>
             <button
-              onClick={() => navigate('/question')}
+              // onClick={() => navigate('/question')}
+              onClick={() => handleNavigation('/question')}
               className="bg-white text-blue-600 font-bold py-4 px-10 rounded-full hover:bg-blue-100 transition duration-300 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Get Started
