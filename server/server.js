@@ -32,6 +32,7 @@ import cors from 'cors'
 
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
+import userRouter from "./routes/user.routes.js";
 
 dotenv.config();
 
@@ -44,6 +45,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user",userRoutes);
+app.use("/api/userData",userRouter);
 
 
 app.listen(PORT, () => {
