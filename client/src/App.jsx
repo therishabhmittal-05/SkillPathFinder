@@ -7,6 +7,7 @@ import UserDashboard from './components/UserDashboard';
 import QuestionnaireForm from './components/QuestionnaireForm';
 import RecommendationsPage from './components/RecommendationsPage';
 import UserProfile from './components/Profile';
+import Navbar from './components/Navbar';
 // import { AuthProvider } from './components/AuthContext';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
     <>
     {/* <AuthProvider> */}
     <Router>
+      <Navbar/>
       <Routes>
         <Route exact path="/" element={<HomePage/>} />
         <Route path="/login" element={<LoginPage />} />
