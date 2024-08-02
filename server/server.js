@@ -32,7 +32,7 @@ app.use("/api/user",userRoutes);
 app.use("/api/userData",userRouter);
 
 
-
+console.log(__dirname,"/client/dist/index.html")
 
 
 
