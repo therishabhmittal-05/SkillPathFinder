@@ -64,9 +64,9 @@ const AuthPage = () => {
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-600" 
-            onClick={()=>{
-              navigate('/');
-            }}
+            // onClick={()=>{
+            //   navigate('/');
+            // }}
           >
             {isLogin ? 'Login' : 'Sign Up'}
           </button>
