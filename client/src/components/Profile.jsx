@@ -111,6 +111,7 @@ const UserProfile = () => {
       try {
         const endpoint = 'http://localhost:8000/api/userData/profile';
         const response = await axios.get(endpoint);
+        console.log("We are here")
         setUser(response.data.user);
         setRecommendations(response.data.recommendations);
         setLoading(false);
