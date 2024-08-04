@@ -14,7 +14,7 @@ const RecommendationPage = () => {
     const fetchRecommendations = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.post('http://localhost:3000/aifeature', answers);
+        const response = await axios.post('https://skillpathfinder-1.onrender.com/aifeature', answers);
         setRecommendationData(response.data);
       } catch (err) {
         setError(err.response?.data?.message || err.message);
