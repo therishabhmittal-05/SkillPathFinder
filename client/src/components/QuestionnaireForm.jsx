@@ -60,7 +60,7 @@ const QuestionnaireForm = () => {
     // Send the request after a 5-second delay
     setTimeout(async () => {
       try {
-        const response = await axios.post('http://localhost:3000/aifeature', answers);
+        const response = await axios.post('https://skillpathfinder-1.onrender.com/aifeature', answers);
         console.log('Form submitted:', response.data);
         // You can update the recommendation page with this data if needed
       } catch (error) {
