@@ -10,7 +10,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const endpoint = 'http://localhost:8000/api/auth/login';
+      const endpoint = 'https://skillpathfinder-1.onrender.com/api/auth/login';
       const payload = { username, password };
       
       const response = await axios.post(endpoint, payload);

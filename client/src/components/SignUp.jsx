@@ -11,7 +11,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const endpoint = 'http://localhost:8000/api/auth/signup';
+      const endpoint = 'https://skillpathfinder-1.onrender.com/api/auth/signup';
       const payload = { username, email, password };
       
       const response = await axios.post(endpoint, payload);
