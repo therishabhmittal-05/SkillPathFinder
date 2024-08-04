@@ -100,8 +100,8 @@ To get started with SkillPathFinder, follow these steps:
 
 ## Contributors
 
-- [Mehak Singla]((https://github.com/mehaksingla2005))
-- [Rishabh Mittal]((https://github.com/therishabhmittal-05))
+- [Mehak Singla](https://github.com/mehaksingla2005)
+- [Rishabh Mittal](https://github.com/therishabhmittal-05)
 - [Pinak Gupta](https://github.com/PinakGupta)
 
 ## License
