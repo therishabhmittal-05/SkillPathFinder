@@ -8,8 +8,9 @@ SkillPathFinder is a comprehensive platform designed to help individuals identif
 2. [Technologies Used](#technologies-used)
 3. [Installation and Usage](#installation-and-usage)
 4. [Features](#features)
-5. [Contributors](#contributors)
-6. [License](#license)
+5. [Screenshots](#screenshots)
+6. [Contributors](#contributors)
+7. [License](#license)
 
 ## Project Overview
 
@@ -23,6 +24,48 @@ SkillPathFinder helps users identify their career goals and the skills needed to
 - **API Integration:** Gemini API
 - **Authentication:** JWT
 - **Deployment:** Render
+
+## Screenshots
+
+- **Login Page**
+  ![Login Page](assets/login.png)
+
+- **Sign Up Page**
+  ![Sign Up Page](assets/signup.png)
+
+- **Home Page**
+  ![Home Page](assets/home.png)
+
+- **Questionnaire Page**
+  ![Questionnaire Page](assets/questionnaire.png)
+
+- **User Dashboard**
+  ![User Dashboard](assets/userdashboard.png)
+
+- **Recommendations Page**
+  ![Recommendations Page](assets/recommendations.png)
+
+## Features
+
+- **Skill Assessment:** 
+  - Evaluate your skills through comprehensive assessments.
+  - Receive detailed feedback on your strengths and areas for improvement.
+
+- **Personalized Recommendations:**
+  - Get curated suggestions for courses, tutorials, and resources based on your career goals.
+  - The Gemini API integration ensures that recommendations are up-to-date and relevant.
+
+- **Progress Tracking:**
+  - Monitor your progress over time with detailed analytics.
+  - Set goals and track your achievements as you develop new skills.
+
+- **User-Friendly Interface:**
+  - Enjoy a clean, intuitive design that makes navigation easy.
+  - Access all features seamlessly, whether on desktop or mobile.
+
+- **Secure and Reliable:**
+  - Benefit from robust security features, including JWT-based authentication.
+  - Data integrity and user privacy are prioritized throughout the platform.
 
 ## Installation and Usage
 
@@ -54,28 +97,6 @@ To get started with SkillPathFinder, follow these steps:
    \`\`\`
    http://localhost:3000
    \`\`\`
-
-## Features
-
-- **Skill Assessment:** 
-  - Evaluate your skills through comprehensive assessments.
-  - Receive detailed feedback on your strengths and areas for improvement.
-
-- **Personalized Recommendations:**
-  - Get curated suggestions for courses, tutorials, and resources based on your career goals.
-  - The Gemini API integration ensures that recommendations are up-to-date and relevant.
-
-- **Progress Tracking:**
-  - Monitor your progress over time with detailed analytics.
-  - Set goals and track your achievements as you develop new skills.
-
-- **User-Friendly Interface:**
-  - Enjoy a clean, intuitive design that makes navigation easy.
-  - Access all features seamlessly, whether on desktop or mobile.
-
-- **Secure and Reliable:**
-  - Benefit from robust security features, including JWT-based authentication.
-  - Data integrity and user privacy are prioritized throughout the platform.
 
 ## Contributors
 
