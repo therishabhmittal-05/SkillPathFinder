@@ -73,7 +73,7 @@ To get started with SkillPathFinder, follow these steps:
 
 1. **Clone the repository:**
    \`\`\`bash
-   git clone https://github.com/mehaksingla2005/SkillPathFinder.git
+   git clone (https://github.com/therishabhmittal-05/SkillPathFinder/).git
    \`\`\`
 2. **Navigate to the project directory:**
    \`\`\`bash
